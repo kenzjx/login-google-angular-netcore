@@ -1,0 +1,12 @@
+<button type="button" (click)="signInWithGoogle()" class="btn btn-outline-primary">
+  <span *ngIf="!isLogging">
+      {{capture}}
+  </span>
+  <span *ngIf="isLogging">
+
+    Google Sign-in...
+  </span>
+</button>
+<div *ngIf="isWarning" class="alert alert-danger" role="alert">
+  Hãy đăng nhập bằng tài khoản <a href="#" class="alert-link">Beetsoft</a>
+</div>
