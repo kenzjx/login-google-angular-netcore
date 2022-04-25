@@ -54,24 +54,24 @@ builder.Services.AddSwaggerGen();
    
 var app = builder.Build();
 
-using(var scope = app.Services.CreateScope())
-{
-    var servicesDb = scope.ServiceProvider;
-    try
-    {
-        var dbConxext = servicesDb.GetRequiredService<AppDbContext>();
-        if(dbConxext.Database.IsSqlServer())
-        {
-            dbConxext.Database.Migrate();
-        }
-    }
-    catch (System.Exception ex)
-    {
-        var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex , "An Error white migraion");
-        throw;
-    }
-}
+// using(var scope = app.Services.CreateScope())
+// {
+//     var servicesDb = scope.ServiceProvider;
+//     try
+//     {
+//         var dbConxext = servicesDb.GetRequiredService<AppDbContext>();
+//         if(dbConxext.Database.IsSqlServer())
+//         {
+//             dbConxext.Database.Migrate();
+//         }
+//     }
+//     catch (System.Exception ex)
+//     {
+//         var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+//         logger.LogError(ex , "An Error white migraion");
+//         throw;
+//     }
+// }
 
 
 // Configure the HTTP request pipeline.

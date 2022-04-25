@@ -1,6 +1,6 @@
 # base SDk images docker
 FROM mcr.microsoft.com/dotnet/sdk:6.0 as build-env
-WORKDIR /app
+WORKDIR /src
 
 #Copy project file and restore 
 
@@ -9,14 +9,16 @@ RUN dotnet restore
 
 # Copy the project files and builds our release
 
-COPY . ./
-RUN dotnet publish -c Release -o out
+COPY ./ ./
+
+RUN dotnet publish -c release -o /out 
 
 # Generate run time image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
-EXPOSE 80 
-COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "Server.dll"]
+EXPOSE 80
+EXPOSE 443
+COPY --from=build-env /src/out ./
+ENTRYPOINT ["dotnet", "Sever.dll"]
 
 

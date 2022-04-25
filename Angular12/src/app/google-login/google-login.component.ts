@@ -28,13 +28,15 @@ export class GoogleLoginComponent implements OnInit {
       let ggEmail = googleUser.email.match(reg);
       if(ggEmail != null)
       {
-
+        console.log(googleUser)
         this.authenService.googleLogin(googleUser)
         .subscribe((data) => {
            console.log(data);
+
           this.isLogging = true;
 
         });
+        this.isWarning = false;
       }else { this.isWarning = true;}
 
 
