@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/phong/Desktop/Beefsoft/SignalR/SignalR.csproj": {}
+  },
+  "projects": {
+    "/home/phong/Desktop/Beefsoft/SignalR/SignalR.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/phong/Desktop/Beefsoft/SignalR/SignalR.csproj",
+        "projectName": "SignalR",
+        "projectPath": "/home/phong/Desktop/Beefsoft/SignalR/SignalR.csproj",
+        "packagesPath": "/home/phong/.nuget/packages/",
+        "outputPath": "/home/phong/Desktop/Beefsoft/SignalR/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/phong/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "identityServer4.aspnetidentity": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
