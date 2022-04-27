@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/phong/Desktop/social-login/login-google-angular-netcore/Sever/Sever.csproj": {}
+    "/home/phong/Desktop/login-google-angular-netcore/Sever/Sever.csproj": {}
   },
   "projects": {
-    "/home/phong/Desktop/social-login/login-google-angular-netcore/Sever/Sever.csproj": {
+    "/home/phong/Desktop/login-google-angular-netcore/Sever/Sever.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/phong/Desktop/social-login/login-google-angular-netcore/Sever/Sever.csproj",
+        "projectUniqueName": "/home/phong/Desktop/login-google-angular-netcore/Sever/Sever.csproj",
         "projectName": "Sever",
-        "projectPath": "/home/phong/Desktop/social-login/login-google-angular-netcore/Sever/Sever.csproj",
+        "projectPath": "/home/phong/Desktop/login-google-angular-netcore/Sever/Sever.csproj",
         "packagesPath": "/home/phong/.nuget/packages/",
-        "outputPath": "/home/phong/Desktop/social-login/login-google-angular-netcore/Sever/obj/",
+        "outputPath": "/home/phong/Desktop/login-google-angular-netcore/Sever/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/phong/.nuget/NuGet/NuGet.Config"
@@ -81,6 +81,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "automapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "automapper.extensions.microsoft.dependencyinjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
             },
             "newtonsoft.json": {
               "target": "Package",

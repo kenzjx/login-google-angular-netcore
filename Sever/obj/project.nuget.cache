@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "mMlVNzf+JYtWr1bNULiJHZnODNYl0ZGf2hGOSNfGZ9qCjpqqCUzwdrL+YtqKnN6/x+UVGm4MA2I/VSoE8+xZ4Q==",
+  "dgSpecHash": "iq7MKTzwohg2o/GEGAJlSq4666mxjDoS3PkGvGD4LbJtjQZwVXnbUcpuqLyVn9adIg9v/KTH93QxI8/w6mDgyw==",
   "success": true,
-  "projectFilePath": "/home/phong/Desktop/social-login/login-google-angular-netcore/Sever/Sever.csproj",
+  "projectFilePath": "/home/phong/Desktop/login-google-angular-netcore/Sever/Sever.csproj",
   "expectedPackageFiles": [
+    "/home/phong/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
+    "/home/phong/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/home/phong/.nuget/packages/google.apis/1.57.0/google.apis.1.57.0.nupkg.sha512",
     "/home/phong/.nuget/packages/google.apis.auth/1.57.0/google.apis.auth.1.57.0.nupkg.sha512",
     "/home/phong/.nuget/packages/google.apis.core/1.57.0/google.apis.core.1.57.0.nupkg.sha512",
@@ -27,7 +29,7 @@
     "/home/phong/.nuget/packages/microsoft.aspnetcore.identity/2.2.0/microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "/home/phong/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.3/microsoft.aspnetcore.identity.entityframeworkcore.6.0.3.nupkg.sha512",
     "/home/phong/.nuget/packages/microsoft.aspnetcore.webutilities/2.2.0/microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
-    "/home/phong/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/home/phong/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/phong/.nuget/packages/microsoft.data.sqlclient/2.1.4/microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "/home/phong/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.1.1/microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "/home/phong/.nuget/packages/microsoft.entityframeworkcore/6.0.3/microsoft.entityframeworkcore.6.0.3.nupkg.sha512",

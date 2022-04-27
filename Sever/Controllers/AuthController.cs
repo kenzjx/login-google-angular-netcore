@@ -20,10 +20,12 @@ namespace Server.Controllers
 
         private readonly Authentication options;
 
+        private readonly UserManager<AppUser> userManager;
         public AuthController(UserManager<AppUser> userManager, IUserService userService, IOptions<Authentication> options) : base(userManager)
         {
             this.userService = userService;
             this.options = options.Value;
+            this.userManager = userManager;
         }
 
         [AllowAnonymous]
@@ -52,6 +54,25 @@ namespace Server.Controllers
         }
 
 
+        [HttpPost]
+         public async Task<IActionResult> Register(RegisterModel model)
+        {
+            if(model == null)
+            {
+                return NotFound();
+            }
+           
+            var user = new AppUser{
+                Email = model.Email,
+                UserName = model.Name,
+                
+            };
+
+            var result =await userManager.CreateAsync(user, "123");
+            return Ok();
+        }
+
+       
         private UserToken GenerateUserToken(AppUser appUser)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

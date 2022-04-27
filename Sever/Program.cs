@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Server.Infrastructure;
 using Server.Interfaces;
 using Server.Options;
+using Server.SeedData;
 using Server.Services;
 using Sever.Infrastructure;
 
@@ -21,11 +22,20 @@ builder.Services.AddControllers();
 builder.Services.AddCors();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddAutoMapper(typeof(Program));
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppContextString"));
 });
-builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<AppUser, IdentityRole>(options =>{
+    options.Password.RequireDigit = false; // Không bắt phải có số
+    options.Password.RequireLowercase = false; // Không bắt phải có chữ thường
+    options.Password.RequireNonAlphanumeric = false; // Không bắt ký tự đặc biệt
+    options.Password.RequireUppercase = false; // Không bắt buộc chữ in
+    options.Password.RequiredLength = 3; // Số ký tự tối thiểu của password
+    options.Password.RequiredUniqueChars = 1; // Số ký tự riêng biệt
+}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddAuthentication(
    JwtBearerDefaults.AuthenticationScheme
 ).AddJwtBearer(options =>
@@ -50,9 +60,10 @@ builder.Services.AddAuthentication(
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddControllersWithViews();
    
 var app = builder.Build();
+
 
 // using(var scope = app.Services.CreateScope())
 // {

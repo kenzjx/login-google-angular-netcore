@@ -7,8 +7,8 @@ namespace Sever.Infrastructure
     {
          [StringLength(50)]
          
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
         [StringLength(50)]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
     }
 }
