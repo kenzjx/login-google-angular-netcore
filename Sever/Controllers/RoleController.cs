@@ -25,7 +25,7 @@ namespace Server.Controllers
         [HttpGet]
         public async Task<IActionResult> GetRoles()
         {
-            var roles = await roleManager.Roles.ToListAsync();
+            var roles = await roleManager.Roles.Select(s=>s.Name).ToListAsync();
             return Ok(roles);
         }
 

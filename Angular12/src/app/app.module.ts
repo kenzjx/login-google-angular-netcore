@@ -12,6 +12,8 @@ import { JwtService } from './core/services/jwt.service';
 import { AuthenticateService } from './core/services/authenticate.service';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AppComponent,
     GoogleLoginComponent,
     UserProfileComponent,
+    DashboardComponent,
 
 
   ],
@@ -26,7 +29,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     BrowserModule,
     SocialLoginModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     JwtService,

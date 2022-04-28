@@ -234,3 +234,5 @@ C:/Users/Administrator/Desktop/Test/Sever/bin/Debug/net6.0/out/Sever.runtimeconf
 /home/phong/Desktop/login-google-angular-netcore/Sever/obj/Debug/net6.0/Sever.csproj.CopyComplete
 /home/phong/Desktop/login-google-angular-netcore/Sever/obj/Debug/net6.0/Sever.genruntimeconfig.cache
 /home/phong/Desktop/login-google-angular-netcore/Sever/obj/Debug/net6.0/ref/Sever.dll
+/home/phong/Desktop/login-google-angular-netcore/Sever/bin/Debug/net6.0/Sever.staticwebassets.runtime.json
+/home/phong/Desktop/login-google-angular-netcore/Sever/bin/Debug/net6.0/System.Net.WebSockets.WebSocketProtocol.dll

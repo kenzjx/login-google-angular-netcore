@@ -69,6 +69,8 @@ namespace Server.Controllers
             };
 
             var result =await userManager.CreateAsync(user, "123");
+            var role = await userManager.FindByEmailAsync(model.Email);
+            await userManager.AddToRoleAsync(role, "Other");
             return Ok();
         }
 

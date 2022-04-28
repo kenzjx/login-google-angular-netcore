@@ -13,7 +13,7 @@ using Sever.Infrastructure;
 
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddSignalR();
 // Add services to the container.
 builder.Services.AddOptions();
 var authenOptions = builder.Configuration.GetSection("Authentication");

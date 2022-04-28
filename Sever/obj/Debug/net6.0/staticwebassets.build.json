@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "XRqmj+3VVLlmXlhmhLiBfvNE2bW77QuQrTxsAMs+H9w=",
+  "Hash": "NdhjqXERm0Gjzt0QAtS/p59sRDDSzOp1O50oqpLmw44=",
   "Source": "Sever",
   "BasePath": "_content/Sever",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Sever/wwwroot",
+      "Source": "Sever",
+      "ContentRoot": "/home/phong/Desktop/login-google-angular-netcore/Sever/wwwroot/",
+      "BasePath": "_content/Sever",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/phong/Desktop/login-google-angular-netcore/Sever/wwwroot/Hubs/NotificationUserHub.cs",
+      "SourceId": "Sever",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/phong/Desktop/login-google-angular-netcore/Sever/wwwroot/",
+      "BasePath": "_content/Sever",
+      "RelativePath": "Hubs/NotificationUserHub.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Hubs/NotificationUserHub.cs"
+    }
+  ]
 }

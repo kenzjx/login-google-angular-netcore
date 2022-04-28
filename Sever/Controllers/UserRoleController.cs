@@ -56,7 +56,7 @@ namespace Server.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateRole(UserRoleRequest model)
         {
-            var user = await userManager.FindByIdAsync(model.Id);
+            var user = await userManager.FindByNameAsync(model.UserName);
 
             IList<string> roles = await userManager.GetRolesAsync(user);
             foreach (var rolename in roles)
