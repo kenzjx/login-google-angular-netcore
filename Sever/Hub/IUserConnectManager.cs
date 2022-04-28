@@ -1,4 +1,4 @@
-namespace Server.Hub
+namespace Server.Hub.Interface
 {
     public interface IUserConnectManager
     {

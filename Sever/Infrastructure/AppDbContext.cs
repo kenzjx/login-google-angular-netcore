@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Server.Infrastructure.Hubs;
 using Sever.Infrastructure;
 
 namespace Server.Infrastructure
@@ -26,5 +27,6 @@ namespace Server.Infrastructure
 
             
         }
+        public DbSet<Notification> Notifications {set;get;}
     }
 }

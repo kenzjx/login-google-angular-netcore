@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Server.Infrastructure;
 using Server.Interfaces;
+using Server.Models.Hub;
 using Server.Options;
 using Server.SeedData;
 using Server.Services;
@@ -109,6 +110,7 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                 endpoints.MapHub<BroadcastHub>("/notify");  
             });
 
 app.Run();

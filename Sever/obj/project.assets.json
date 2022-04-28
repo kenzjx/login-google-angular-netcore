@@ -2,6 +2,27 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Autofac/3.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Autofac.dll": {}
+        }
+      },
+      "Autofac.SignalR/3.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "3.1.3-CI-027"
+        },
+        "compile": {
+          "lib/net40/Autofac.Integration.SignalR.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Autofac.Integration.SignalR.dll": {}
+        }
+      },
       "AutoMapper/11.0.1": {
         "type": "package",
         "dependencies": {
@@ -1499,6 +1520,34 @@
     }
   },
   "libraries": {
+    "Autofac/3.1.3": {
+      "sha512": "3yoGjsF7C2dAEgV6NjHntOxOIDgVdEXISbGGgEv+keCS09KpFygO2iZpGGcuMe1EOg0jSgdjLdkVMjFNQfPffw==",
+      "type": "package",
+      "path": "autofac/3.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.3.1.3.nupkg.sha512",
+        "autofac.nuspec",
+        "lib/net40/Autofac.dll",
+        "lib/net40/Autofac.xml",
+        "lib/portable-win+net40+sl50+wp8/Autofac.dll",
+        "lib/portable-win+net40+sl50+wp8/Autofac.xml"
+      ]
+    },
+    "Autofac.SignalR/3.0.2": {
+      "sha512": "c4Y3/OafAznXjX2LugHcLk414/jmiuQuF7QKFixVQKh7U9E+7qYdhZIDaD4YlLVnI7Lt16pUiNqlrmutopcUUw==",
+      "type": "package",
+      "path": "autofac.signalr/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.signalr.3.0.2.nupkg.sha512",
+        "autofac.signalr.nuspec",
+        "lib/net40/Autofac.Integration.SignalR.dll",
+        "lib/net40/Autofac.Integration.SignalR.xml"
+      ]
+    },
     "AutoMapper/11.0.1": {
       "sha512": "WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
       "type": "package",
@@ -4258,6 +4307,7 @@
       "Microsoft.EntityFrameworkCore.sqlserver >= 6.0.3",
       "Microsoft.EntityFrameworkCore.tools >= 6.0.3",
       "Swashbuckle.AspNetCore >= 6.2.3",
+      "autofac.signalr >= 3.0.2",
       "automapper >= 11.0.1",
       "automapper.extensions.microsoft.dependencyinjection >= 11.0.0",
       "newtonsoft.json >= 13.0.1"
@@ -4352,6 +4402,10 @@
             "target": "Package",
             "version": "[6.2.3, )"
           },
+          "autofac.signalr": {
+            "target": "Package",
+            "version": "[3.0.2, )"
+          },
           "automapper": {
             "target": "Package",
             "version": "[11.0.1, )"
@@ -4386,5 +4440,37 @@
         "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Autofac.SignalR 3.0.2 depends on Autofac (>= 3.1.3-CI-027) but Autofac 3.1.3-CI-027 was not found. An approximate best match of Autofac 3.1.3 was resolved.",
+      "libraryId": "Autofac",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Autofac 3.1.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Autofac",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Autofac.SignalR 3.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Autofac.SignalR",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

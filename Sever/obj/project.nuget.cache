@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "X9OZ03XATiWyGby7Wliq86K9DtBjWFRMNDuVBhEY6XlNyi5v8UepWKxkKeGNeuF7Xj8Cb1kI+MMxbGkUftNcwQ==",
+  "dgSpecHash": "EpuxgDUR6o4NG+Chj+jjLVl1ObMxXU29o4u16aPp1J9ADnmyKEHgxxq1fHNjZQYZZEZWruUxZh31BLeoNxZ1lA==",
   "success": true,
   "projectFilePath": "/home/phong/Desktop/login-google-angular-netcore/Sever/Sever.csproj",
   "expectedPackageFiles": [
+    "/home/phong/.nuget/packages/autofac/3.1.3/autofac.3.1.3.nupkg.sha512",
+    "/home/phong/.nuget/packages/autofac.signalr/3.0.2/autofac.signalr.3.0.2.nupkg.sha512",
     "/home/phong/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
     "/home/phong/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/home/phong/.nuget/packages/google.apis/1.57.0/google.apis.1.57.0.nupkg.sha512",
@@ -115,5 +117,36 @@
     "/home/phong/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
     "/home/phong/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Autofac.SignalR 3.0.2 depends on Autofac (>= 3.1.3-CI-027) but Autofac 3.1.3-CI-027 was not found. An approximate best match of Autofac 3.1.3 was resolved.",
+      "libraryId": "Autofac",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Autofac 3.1.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Autofac",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Autofac.SignalR 3.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Autofac.SignalR",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

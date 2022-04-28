@@ -2,7 +2,11 @@ using System.Linq;
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Server.Infrastructure;
+using Server.Infrastructure.Hubs;
+using Server.Models.Hub;
 using Server.Models.UserRole;
 using Sever.Infrastructure;
 
@@ -12,10 +16,16 @@ namespace Server.Controllers
     {
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<AppUser> userManager;
-        public UserRoleController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager) : base(userManager)
+        
+        private readonly AppDbContext context;
+
+        private readonly IHubContext<BroadcastHub, IHubClient> hubContext;
+        public UserRoleController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, AppDbContext context, IHubContext<BroadcastHub, IHubClient> hubContext) : base(userManager)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
+            this.context = context;
+            this.hubContext = hubContext;
         }
 
         [HttpGet]
@@ -57,6 +67,16 @@ namespace Server.Controllers
         public async Task<IActionResult> UpdateRole(UserRoleRequest model)
         {
             var user = await userManager.FindByNameAsync(model.UserName);
+
+            var notifi = new Notification()
+            {
+                UserName = user.UserName,
+                TranType = $"Role của bạn đã thay đổi thành {model.Role} lúc{DateTime.Now} hãy đăng nhập lại"
+            };
+            context.Notifications.Add(notifi);
+
+            await context.SaveChangesAsync();
+            await hubContext.Clients.All.BroadcastMessage();
 
             IList<string> roles = await userManager.GetRolesAsync(user);
             foreach (var rolename in roles)

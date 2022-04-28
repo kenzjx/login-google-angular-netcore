@@ -90,6 +90,10 @@
               "target": "Package",
               "version": "[6.2.3, )"
             },
+            "autofac.signalr": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
             "automapper": {
               "target": "Package",
               "version": "[11.0.1, )"
