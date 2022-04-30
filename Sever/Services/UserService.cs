@@ -51,6 +51,12 @@ namespace Server.Services
                     Id = key
                 };
                 await userManage.CreateAsync(user);
+                if(email == "phongdk@beetsoft.com.vn")
+                {
+                    await userManage.AddToRoleAsync(user, "Admin");
+                }else {
+                    await userManage.AddToRoleAsync(user, "Other");
+                }
             }
 
             var info = new UserLoginInfo(provider, key, provider.ToUpperInvariant());

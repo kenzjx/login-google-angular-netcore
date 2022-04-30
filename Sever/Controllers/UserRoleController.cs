@@ -13,38 +13,41 @@ using Sever.Infrastructure;
 namespace Server.Controllers
 {
     public class UserRoleController : BaseController
-    {
+    {   private readonly ILogger logger;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<AppUser> userManager;
         
         private readonly AppDbContext context;
 
-        private readonly IHubContext<BroadcastHub, IHubClient> hubContext;
-        public UserRoleController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, AppDbContext context, IHubContext<BroadcastHub, IHubClient> hubContext) : base(userManager)
+        private readonly IHubContext hubContext;
+        public UserRoleController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, AppDbContext context, IHubContext hubContext, ILogger<UserRoleController> logger) : base(userManager)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
             this.context = context;
             this.hubContext = hubContext;
+            this.logger = logger;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetUserRole()
         {
-            List<UserRoleRepose> users = new List<UserRoleRepose>();
-
+            
+            ListUserRoleRepose users = new ListUserRoleRepose();
             var lusers = (from u in userManager.Users
                           orderby u.UserName
                           select new {Id = u.Id, Name = u.UserName});
              var result = await lusers.ToListAsync();
-             
+             ICollection<string> listroles;
             foreach (var user in result)
             {
                 var roles = await userManager.GetRolesAsync(new AppUser{Id = user.Id});
+                logger.LogWarning(Environment.NewLine, roles.ToArray());
                 var Role = string.Join(",", roles.ToList());
-                users.Add(new UserRoleRepose{Id = user.Id, UserName = user.Name, Role = Role});
+                listroles = await roleManager.Roles.Select(s=>s.Name).ToListAsync();
+                users.Add(new UserRoleRepose{Id = user.Id, UserName = user.Name, Role = Role, ListRoles = listroles});
             }
-
+            
             var reulst1 =  users.ToList();
             return Ok(reulst1);
         }
@@ -76,7 +79,7 @@ namespace Server.Controllers
             context.Notifications.Add(notifi);
 
             await context.SaveChangesAsync();
-            await hubContext.Clients.All.BroadcastMessage();
+            await hubContext.Clients.All.SendAsync("asdfasdf");
 
             IList<string> roles = await userManager.GetRolesAsync(user);
             foreach (var rolename in roles)

@@ -17,6 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSignalR();
 // Add services to the container.
 builder.Services.AddOptions();
+builder.Services.AddLogging();
 var authenOptions = builder.Configuration.GetSection("Authentication");
 builder.Services.Configure<Authentication>(authenOptions);
 builder.Services.AddControllers();
