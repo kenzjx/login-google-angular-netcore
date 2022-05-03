@@ -12,8 +12,8 @@ using Server.Infrastructure;
 namespace Sever.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220427150453_Change1")]
-    partial class Change1
+    [Migration("20220503170631_Hub")]
+    partial class Hub
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -155,6 +155,28 @@ namespace Sever.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Server.Infrastructure.Hubs.Connections", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PersonId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignalrId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Connections");
                 });
 
             modelBuilder.Entity("Sever.Infrastructure.AppUser", b =>

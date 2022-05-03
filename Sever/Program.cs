@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Server.Hub.Interface;
 using Server.Infrastructure;
 using Server.Interfaces;
 using Server.Models.Hub;
@@ -14,12 +15,17 @@ using Sever.Infrastructure;
 
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSignalR();
+
 // Add services to the container.
 builder.Services.AddOptions();
 builder.Services.AddLogging();
 var authenOptions = builder.Configuration.GetSection("Authentication");
 builder.Services.Configure<Authentication>(authenOptions);
+builder.Services.AddSignalR(
+    options =>{
+         options.EnableDetailedErrors = true;
+    }
+);
 builder.Services.AddControllers();
 builder.Services.AddCors();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -62,6 +68,8 @@ builder.Services.AddAuthentication(
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 builder.Services.AddControllersWithViews();
    
 var app = builder.Build();
@@ -111,7 +119,7 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                 endpoints.MapHub<BroadcastHub>("/notify");  
+                  endpoints.MapHub<MyHub>("/toastr");
             });
 
 app.Run();

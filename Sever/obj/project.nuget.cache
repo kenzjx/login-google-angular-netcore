@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EpuxgDUR6o4NG+Chj+jjLVl1ObMxXU29o4u16aPp1J9ADnmyKEHgxxq1fHNjZQYZZEZWruUxZh31BLeoNxZ1lA==",
+  "dgSpecHash": "HjCuUsfxBIxReWedUdRZ6VSBFPu04rmTtw03Q9UPF3AbfdyvUEOiSUXPivRpj1av++5UfjLc2FFLV6pIJQc3ZQ==",
   "success": true,
-  "projectFilePath": "/home/phong/Desktop/login-google-angular-netcore/Sever/Sever.csproj",
+  "projectFilePath": "/home/phong/Desktop/Beetsoft/login-google-angular-netcore/Sever/Sever.csproj",
   "expectedPackageFiles": [
     "/home/phong/.nuget/packages/autofac/3.1.3/autofac.3.1.3.nupkg.sha512",
     "/home/phong/.nuget/packages/autofac.signalr/3.0.2/autofac.signalr.3.0.2.nupkg.sha512",
@@ -12,7 +12,6 @@
     "/home/phong/.nuget/packages/google.apis.auth/1.57.0/google.apis.auth.1.57.0.nupkg.sha512",
     "/home/phong/.nuget/packages/google.apis.core/1.57.0/google.apis.core.1.57.0.nupkg.sha512",
     "/home/phong/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
-    "/home/phong/.nuget/packages/microsoft.aspnet.signalr.client/2.4.3/microsoft.aspnet.signalr.client.2.4.3.nupkg.sha512",
     "/home/phong/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/home/phong/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "/home/phong/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.2.0/microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",

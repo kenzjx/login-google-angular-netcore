@@ -11,7 +11,6 @@
     <PackageReference Include="automapper" Version="11.0.1" />
     <PackageReference Include="automapper.extensions.microsoft.dependencyinjection" Version="11.0.0" />
     <PackageReference Include="Google.Apis.Auth" Version="1.57.0" />
-    <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.4.3" />
     
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.3" />

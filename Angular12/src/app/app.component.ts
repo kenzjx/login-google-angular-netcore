@@ -1,3 +1,4 @@
+import { SignalrService } from './signalr.service';
 import { Component } from '@angular/core';
 import { AuthenticateService } from './core/services/authenticate.service';
 import {  UserToken } from './core/models/response/user-token';
@@ -15,7 +16,7 @@ export class AppComponent {
    subscription: Subscription | any = null ;
   webApiUrl: string = `${environment.baseUrl}`;
 
-  constructor(private authService: AuthenticateService) {
+  constructor(private authService: AuthenticateService, private signalRService : SignalrService) {
   }
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class AppComponent {
         this.logged = false;
       }
     });
+    this.signalRService.startConnection();
   }
 
   ngOnDestroy() {

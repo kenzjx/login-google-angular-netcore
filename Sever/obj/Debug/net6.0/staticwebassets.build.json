@@ -1,19 +1,11 @@
 {
   "Version": 1,
-  "Hash": "6PWEmkvlZtzbROIrdKP0xF6wYk91GoHauTKjcb3hVCo=",
+  "Hash": "XRqmj+3VVLlmXlhmhLiBfvNE2bW77QuQrTxsAMs+H9w=",
   "Source": "Sever",
   "BasePath": "_content/Sever",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [
-    {
-      "Name": "Sever/wwwroot",
-      "Source": "Sever",
-      "ContentRoot": "/home/phong/Desktop/login-google-angular-netcore/Sever/wwwroot/",
-      "BasePath": "_content/Sever",
-      "Pattern": "**"
-    }
-  ],
+  "DiscoveryPatterns": [],
   "Assets": []
 }

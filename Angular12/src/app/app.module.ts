@@ -14,6 +14,8 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     GoogleLoginComponent,
     UserProfileComponent,
     DashboardComponent,
+    HomeComponent,
 
 
   ],
@@ -30,7 +33,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     SocialLoginModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      enableHtml: true,
+      timeOut: 10000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+    })
   ],
   providers: [
     JwtService,

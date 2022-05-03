@@ -27,6 +27,6 @@ namespace Server.Infrastructure
 
             
         }
-        public DbSet<Notification> Notifications {set;get;}
+        public DbSet<Connections> Connections {set;get;}
     }
 }

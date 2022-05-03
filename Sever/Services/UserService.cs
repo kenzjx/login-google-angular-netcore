@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Options;
+using Server.Hub.Interface;
 using Server.Interfaces;
 using Server.Models.Auth;
 using Server.Options;
@@ -11,13 +13,16 @@ namespace Server.Services
 {
     public class UserService : IUserService
     {
-        Authentication options;
+        private readonly Authentication options;
         private readonly UserManager<AppUser> userManage;
+        
+        
 
         public UserService(UserManager<AppUser> userManage, IOptions<Authentication> options)
         {
             this.userManage = userManage;
             this.options = options.Value;
+           
         }
 
         public async Task<AppUser> AuthenticateGoogleUserAsync(GoogleUserRequest request)
@@ -57,11 +62,15 @@ namespace Server.Services
                 }else {
                     await userManage.AddToRoleAsync(user, "Other");
                 }
+
             }
+
+            
 
             var info = new UserLoginInfo(provider, key, provider.ToUpperInvariant());
 
             var result = await userManage.AddLoginAsync(user, info);
+            
             if(result.Succeeded)
             {
                 return user;
