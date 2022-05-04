@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import * as signalR from '@aspnet/signalr';
 import { Observable, Subject } from 'rxjs';
+import { UserSignalR } from './core/models/response/UserSignalR';
 
 
 @Injectable({
@@ -15,6 +16,8 @@ export class SignalrService {
 
   protected baseUrl = environment.baseUrl;
 
+
+
   hubConnection : signalR.HubConnection | undefined;
 
   ssSubj = new Subject<any>();
@@ -22,7 +25,7 @@ export class SignalrService {
         return this.ssSubj.asObservable();
     }
 
-  startConnection = () =>{
+  startConnection (){
     this.hubConnection = new signalR.HubConnectionBuilder()
     .withUrl(`${this.baseUrl}/toastr`, {
       skipNegotiation: true,

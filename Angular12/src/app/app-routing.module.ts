@@ -1,32 +1,19 @@
-import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { AuthGuard } from './Admin/dashboard/dashboard.guard';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { AppComponent } from './app.component';
 
-//2Tutorial
 const routes: Routes = [
-  {
-    path: '', redirectTo: 'home', pathMatch: 'full'
-  },
-  {
-    path: 'Admin', component: DashboardComponent
-  },
-  //3Tutorial
-  {
-    path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: '**', redirectTo: 'home', pathMatch: 'full'
-   }
+  {path: '', component: AppComponent, pathMatch: 'full'},
+{path: 'home', component: HomeComponent},
+{path: 'admin', component: DashboardComponent},
+
 ];
 
-//3Tutorial
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

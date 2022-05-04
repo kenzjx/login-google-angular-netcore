@@ -55,49 +55,48 @@ namespace Server.Controllers
             return Ok(reulst1);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> postUserRole()
-        {
-            var lusers = (from u in userManager.Users
-                          orderby u.UserName
-                          select u);
-            var result = await lusers.ToListAsync();
+        // [HttpPost]
+        // public async Task<IActionResult> postUserRole()
+        // {
+        //     for (var i = 1; i < 20; i++)
+        //     {
+        //         await userManager.CreateAsync(new AppUser { UserName = "user" + i, Email = "user" + 1 + "@gmail.com" }, "123");
+        //     }
 
-            foreach (var user in result)
-            {
-                await userManager.AddToRoleAsync(user, "Other");
-            }
-            return Ok();
-        }
+        //     var lusers = (from u in userManager.Users
+        //                   orderby u.UserName
+        //                   select u);
+        //     var result = await lusers.ToListAsync();
+
+        //     foreach (var user in result)
+        //     {
+        //         await userManager.AddToRoleAsync(user, "Other");
+        //     }
+        //     return Ok();
+        // }
         [HttpPut]
         public async Task<IActionResult> UpdateRole(UserRoleRequest model)
         {
-
-
             var user = await userManager.FindByNameAsync(model.UserName);
-
-
-
             await context.SaveChangesAsync();
-            await hubContext.Clients.All.SendAsync("asdfasdf");
-
             IList<string> roles = await userManager.GetRolesAsync(user);
             foreach (var rolename in roles)
             {
                 if (model.Role.Contains(rolename)) continue;
                 await userManager.RemoveFromRoleAsync(user, rolename);
             }
-            var connect = context.Connections.Where(c => c.PersonId == user.Id).Select(c => c.SignalrId).ToList();
+            var connect = await context.Connections.Where(c => c.PersonId == user.Id).Select(c => c.SignalrId).ToListAsync();
             var result = await userManager.AddToRoleAsync(user, model.Role);
+            await context.SaveChangesAsync();
             if (result.Succeeded)
             {
                 var message = $"Role của bạn đã thay đổi thành ${model.Role} bạn hãy đăng nhập lại để tiếp tục";
                 await hubContext.Clients.Clients(connect).SendAsync("RoleChangeSucce", message);
-            }else {
+            }
+            else
+            {
                 await hubContext.Clients.Clients(connect).SendAsync("RoleChangeFail");
             }
-
-
             return Ok();
         }
     }

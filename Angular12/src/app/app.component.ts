@@ -30,7 +30,7 @@ export class AppComponent {
         this.logged = false;
       }
     });
-    this.signalRService.startConnection();
+
   }
 
   ngOnDestroy() {

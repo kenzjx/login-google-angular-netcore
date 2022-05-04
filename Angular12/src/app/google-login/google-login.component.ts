@@ -16,7 +16,7 @@ export class GoogleLoginComponent implements OnInit {
      isWarning: boolean = false;
 
   constructor(private authenService : AuthenticateService,
-    private socialLoginService : SocialAuthService, router : Router) { }
+    private socialLoginService : SocialAuthService, private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -24,22 +24,22 @@ export class GoogleLoginComponent implements OnInit {
   signInWithGoogle(): void {
     this.isLogging = true;
     this.socialLoginService.signIn(GoogleLoginProvider.PROVIDER_ID).then(googleUser => {
-      let reg =  /(\w+)@(beetsoft\.com\.vn)/;
-      let ggEmail = googleUser.email.match(reg);
-      if(ggEmail != null)
-      {
-        console.log(googleUser)
-        this.authenService.googleLogin(googleUser)
-        .subscribe((data) => {
-           console.log(data);
-
-          this.isLogging = true;
-
-        });
-        this.isWarning = false;
-      }else { this.isWarning = true;}
-
-
+      // let reg =  /(\w+)@(beetsoft\.com\.vn)/;
+      // let ggEmail = googleUser.email.match(reg);
+      // if(ggEmail != null)
+      // {
+      //   this.authenService.googleLogin(googleUser)
+      //   .subscribe((data) => {
+      //     this.isLogging = true;
+      //   });
+      //   this.isWarning = false;
+      // }else { this.isWarning = true;}
+      this.authenService.googleLogin(googleUser)
+      .subscribe((data) => {
+        this.isLogging = true;
+      });
+        // this.router.navigateByUrl("/home");
     });
+
   }
 }

@@ -1,8 +1,13 @@
+import { SignalrService } from './../../signalr.service';
 import { UserRole } from './../../core/models/request/UserRole';
 import { UserroleService } from './../../core/services/UserRole/userrole.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserRoleReponse } from 'src/app/core/models/response/UserRole';
+import { Subscription } from 'rxjs';
+import { AuthenticateService } from 'src/app/core/services/authenticate.service';
+import { UserSignalR } from 'src/app/core/models/response/UserSignalR';
+import { UserToken } from 'src/app/core/models/response/user-token';
 
 
 
@@ -14,13 +19,16 @@ import { UserRoleReponse } from 'src/app/core/models/response/UserRole';
 export class DashboardComponent implements OnInit {
 
 
-   userRole: UserRole = new UserRole();
+  subscription : Subscription | any ;
+  userData : UserToken | any = null;
+
+
+   userRole: UserRole |any;
   formValue : FormGroup;
   Roles : any;
-  UserRole: any | UserRoleReponse;
+  roleChange :string ='';
   showSave: boolean = true;;
-
-  constructor(private formBuilder : FormBuilder, private userroleService :UserroleService) {
+  constructor(private authService: AuthenticateService, private sinalR:SignalrService, private formBuilder : FormBuilder, private userroleService :UserroleService) {
     this.formValue = this.formBuilder.group({
       id: [''],
       userName : [''],
@@ -30,27 +38,29 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserRoles();
-    this.getAllRoles();
-    console.log(UserRole);
-  }
 
-  getAllRoles(){
-    this.userroleService.getRoles().subscribe((data:any) =>{
-      this.Roles = data;
-    })
   }
 
   getUserRoles(){
     this.userroleService.getUserRoles().subscribe((data:any)=>{
-      this.UserRole = data;
+      this.userRole = data;
     })
   }
+
+  changeRole(event :any)
+  {
+    this.roleChange = event.target.value;
+    console.log(event.target.value)
+  }
+
   updateUserRole(row: any){
-    this.userRole.userName = row.userName;
-    this.userRole.role = row.role;
-    this.userroleService.updateUserRole(this.userRole).subscribe(res =>{
+    const userRoleRepose : UserRoleReponse = new UserRoleReponse();
+    userRoleRepose.userName = row;
+    userRoleRepose.role = this.roleChange;
+    this.userroleService.updateUserRole(userRoleRepose).subscribe(res =>{
       this.getUserRoles();
     })
+    this.getUserRoles();
     this.formValue.reset();
   }
 

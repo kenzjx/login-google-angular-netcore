@@ -3,23 +3,20 @@
   <table class="table mt-3 table-bordered">
     <thead class="thead-dark">
       <tr>
-
         <th scope="col">User Name</th>
         <th scope="col">Role Name</th>
-        <th scope="col">Test</th>
       </tr>
     </thead>
     <tbody class="table-striped table-hover">
-      <tr class="table-active" *ngFor="let row of UserRole ">
+      <tr class="table-active" *ngFor="let row of userRole">
         <td>{{row.userName}}</td>
-        <td>{{row.role}}</td>
         <td>
-          <select name="role" id="roleid" >
-
+          <select id="roleid" (change)="changeRole($event)">
+            <option *ngFor="let item of row.listRoles" [selected]="item === row.role" >{{item}}</option>
           </select>
         </td>
         <td>
-          <Button (click)="updateUserRole(row)" class="btn btn-danger ml-2">SAVE</Button>
+          <Button (click)="updateUserRole(row.userName)" class="btn btn-danger ml-2">SAVE</Button>
         </td>
       </tr>
     </tbody>
