@@ -1,22 +1,2 @@
-<header>
-  <div class="navbar bd-navbar box-shadow">
-    <div class="container d-flex justify-content-between">
-      <a href="{{webApiUrl}}" target="_blank" class="navbar-brand primary d-flex align-items-center">
-        <strong>Web API Documentation</strong>
-      </a>
-      <button *ngIf="logged" type="button" (click)="logout()" class="btn btn-outline-primary">
-        Logout
-      </button>
-    </div>
-  </div>
-</header>
-<section class="jumbotron text-center">
-  <div class="container">
 
-    <app-google-login *ngIf="!logged" capture="Sign in with Google"></app-google-login>
-  </div>
-</section>
-
-<app-home></app-home>
-<app-dashboard></app-dashboard>
 <router-outlet></router-outlet>

@@ -11,26 +11,33 @@ import { environment } from '../environments/environment';
 import { JwtService } from './core/services/jwt.service';
 import { AuthenticateService } from './core/services/authenticate.service';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+const routes : Routes = [
+  {path: '', component: GoogleLoginComponent, pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'admin', component: DashboardComponent},
+  {path:'**', redirectTo: 'home'}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     GoogleLoginComponent,
-    UserProfileComponent,
+    HomeComponent,
     DashboardComponent,
     HomeComponent,
 
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SocialLoginModule,
-    AppRoutingModule,
+    RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({

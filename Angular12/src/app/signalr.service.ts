@@ -16,22 +16,14 @@ export class SignalrService {
 
   protected baseUrl = environment.baseUrl;
 
-
-
-  hubConnection : signalR.HubConnection | undefined;
-
   ssSubj = new Subject<any>();
     ssObs(): Observable<any> {
         return this.ssSubj.asObservable();
     }
 
+    hubConnection = new signalR.HubConnectionBuilder()
+    .withUrl(`${this.baseUrl}/toastr`).build();
   startConnection (){
-    this.hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl(`${this.baseUrl}/toastr`, {
-      skipNegotiation: true,
-      transport: signalR.HttpTransportType.WebSockets
-    }).build();
-
     this.hubConnection.start().then(() =>{
       this.ssSubj.next({type: "HubConnStarted"});
     })

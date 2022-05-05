@@ -95,7 +95,7 @@ namespace Server.Controllers
             }
             else
             {
-                await hubContext.Clients.Clients(connect).SendAsync("RoleChangeFail");
+                await hubContext.Clients.Clients(connect).SendAsync("RoleChangeFail", "Error change Role");
             }
             return Ok();
         }

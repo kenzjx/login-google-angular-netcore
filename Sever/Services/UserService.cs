@@ -52,7 +52,7 @@ namespace Server.Services
                 user = new AppUser
                 {
                     Email = email,
-                    UserName = firstName,
+                    UserName = email,
                     FirstName = firstName,
                     LastName = lasName,
                     Id = key

@@ -27,7 +27,14 @@ builder.Services.AddSignalR(
     }
 );
 builder.Services.AddControllers();
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("CorsPolicy", builder => builder
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials()
+        .WithOrigins("http://localhost:4200"));
+    });
 builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
@@ -110,7 +117,7 @@ if (app.Environment.IsDevelopment())
             });
 app.UseRouting();
 
-app.UseCors(options => options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();

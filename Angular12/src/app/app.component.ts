@@ -10,34 +10,11 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Google Login';
-  logged = false;
-  model: UserToken | any = null;
-   subscription: Subscription | any = null ;
-  webApiUrl: string = `${environment.baseUrl}`;
-
-  constructor(private authService: AuthenticateService, private signalRService : SignalrService) {
+  constructor(private authService: AuthenticateService) {
   }
-
   ngOnInit(): void {
-    this.subscription = this.authService.currentUser.subscribe(data => {
-      if (data) {
-        this.model = data;
-        this.logged = true;
-      }
-      else {
-        this.model = null;
-        this.logged = false;
-      }
-    });
-
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
-  logout() {
-    this.authService.logout();
   }
 }
