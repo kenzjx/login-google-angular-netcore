@@ -50,6 +50,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>{
     options.Password.RequireUppercase = false; // Không bắt buộc chữ in
     options.Password.RequiredLength = 3; // Số ký tự tối thiểu của password
     options.Password.RequiredUniqueChars = 1; // Số ký tự riêng biệt
+    
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddAuthentication(
    JwtBearerDefaults.AuthenticationScheme

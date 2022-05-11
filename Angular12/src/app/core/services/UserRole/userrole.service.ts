@@ -1,3 +1,4 @@
+import { JwtService } from './../jwt.service';
 import { Observable } from 'rxjs';
 import { UserRole, UserRoleRequest } from './../../models/request/UserRole';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -13,9 +14,11 @@ export class UserroleService implements  OnInit{
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
   //Add 'implements OnInit' to the class.
 
+  // email : string
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jwt :JwtService ) {
+    // this.email = this.jwt.getIdUser();
+   }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -31,6 +34,14 @@ export class UserroleService implements  OnInit{
       return res;
     }))
   }
+
+
+
+  // getUserRoleId() : Observable<UserRoleRequest>
+  // {
+  //   return this.http.get<any>(``)
+  // }
+
 
   updateUserRole(UR : IUserRoleReponse) : Observable<IUserRoleReponse>
   {

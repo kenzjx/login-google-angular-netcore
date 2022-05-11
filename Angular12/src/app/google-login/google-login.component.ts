@@ -31,7 +31,7 @@ export class GoogleLoginComponent implements OnInit, OnDestroy {
       if (data) {
         this.model = data;
         this.logged = true;
-        console.log(data)
+       
       }
       else {
         this.model = null;
@@ -61,7 +61,7 @@ export class GoogleLoginComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.isLogging = true;
       });
-
+      this.router.navigateByUrl("/home");
     });
 
   }

@@ -4,7 +4,7 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
 
 import { AppComponent } from './app.component';
 
-import { AppRoutingModule } from './app-routing/app-routing.module';
+
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { GoogleLoginComponent } from './google-login/google-login.component';
 import { environment } from '../environments/environment';
@@ -15,12 +15,13 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ToastrModule } from 'ngx-toastr';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeGuard } from './home/home.guard';
 const routes : Routes = [
   {path: '', component: GoogleLoginComponent, pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'admin', component: DashboardComponent},
+  {path: 'home', component: HomeComponent, canActivate: [HomeGuard]},
+  {path: 'admin', loadChildren: () => import('./Admin/dashboard/dashboard/dashboard.module').then(m => m.DashboardModule)},
   {path:'**', redirectTo: 'home'}
 ]
 
@@ -29,7 +30,6 @@ const routes : Routes = [
     AppComponent,
     GoogleLoginComponent,
     HomeComponent,
-    DashboardComponent,
     HomeComponent,
 
   ],
@@ -37,7 +37,9 @@ const routes : Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     SocialLoginModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules
+    }),
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({

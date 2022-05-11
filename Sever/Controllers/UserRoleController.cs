@@ -90,7 +90,7 @@ namespace Server.Controllers
             await context.SaveChangesAsync();
             if (result.Succeeded)
             {
-                var message = $"Role của bạn đã thay đổi thành ${model.Role} bạn hãy đăng nhập lại để tiếp tục";
+                var message = $"Role của bạn đã thay đổi thành {model.Role} bạn hãy đăng nhập lại để tiếp tục";
                 await hubContext.Clients.Clients(connect).SendAsync("RoleChangeSucce", message);
             }
             else

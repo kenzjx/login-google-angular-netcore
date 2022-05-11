@@ -33,5 +33,13 @@ export class JwtService {
     } else return null;
   }
 
+  getEmailUser() {
+    const user = this.getUser();
+    if(user)
+    {
+      return user.email;
+    } else return null;
+  }
+
   constructor() { }
 }
