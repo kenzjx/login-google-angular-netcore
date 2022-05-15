@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PFkaFeIXQ5dZBORSdOXZ8mPtAthInlB4mR3bvl+0+Ss=",
+  "Hash": "XE5fT1adLqFYHKP9iMGCRYSR7hbl9LLs2cv0RHA3Snw=",
   "Source": "Sever",
   "BasePath": "_content/Sever",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "Sever/wwwroot",
       "Source": "Sever",
-      "ContentRoot": "/home/phong/Desktop/Beetsoft/login-google-angular-netcore/Sever/wwwroot/",
+      "ContentRoot": "/home/phong/Desktop/beetsoft/login-google-angular-netcore/Sever/wwwroot/",
       "BasePath": "_content/Sever",
       "Pattern": "**"
     }

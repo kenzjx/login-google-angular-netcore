@@ -58,7 +58,7 @@ namespace Server.Controllers
         // [HttpPost]
         // public async Task<IActionResult> postUserRole()
         // {
-        //     for (var i = 1; i < 20; i++)
+        //     for (var i = 1; i < 100; i++)
         //     {
         //         await userManager.CreateAsync(new AppUser { UserName = "user" + i, Email = "user" + 1 + "@gmail.com" }, "123");
         //     }

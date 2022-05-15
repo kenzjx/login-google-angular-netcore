@@ -19,8 +19,6 @@ import { filter, find, map, takeUntil } from 'rxjs/operators';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-
-
   subscription : Subscription | any ;
   userData : UserToken | any = null;
 
@@ -30,7 +28,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
   formValue : FormGroup;
   Roles : any;
   roleChange :string ='';
-  showSave: boolean = true;;
+  showSave: boolean = true;
+
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
+  tableSizes: any = [5,10,15,20];
+
   constructor(private jwt : JwtService, private formBuilder : FormBuilder, private userroleService :UserroleService) {
     this.formValue = this.formBuilder.group({
       id: [''],
@@ -72,6 +76,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
     })
     this.getUserRoles();
     this.formValue.reset();
+  }
+
+  onTableDataChange(event: any)
+  {
+    // this.tableSize = event.target.value;
+    this.page = event;
+    this.getUserRoles();
+  }
+
+  onTableSizeChange(event: any) : void
+  {
+    this.tableSize = event.target.value;
+    this.getUserRoles();
   }
 
 }

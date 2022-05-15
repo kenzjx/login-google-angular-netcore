@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HjCuUsfxBIxReWedUdRZ6VSBFPu04rmTtw03Q9UPF3AbfdyvUEOiSUXPivRpj1av++5UfjLc2FFLV6pIJQc3ZQ==",
+  "dgSpecHash": "QWMsqC5hExyebTGaxMubgBvSXyh24gOjJV8oTGu55DbhrpsH5GN5+mMlQiJsmKdulI7neOGgQvhuMZbCnyOtZA==",
   "success": true,
-  "projectFilePath": "/home/phong/Desktop/Beetsoft/login-google-angular-netcore/Sever/Sever.csproj",
+  "projectFilePath": "/home/phong/Desktop/beetsoft/login-google-angular-netcore/Sever/Sever.csproj",
   "expectedPackageFiles": [
     "/home/phong/.nuget/packages/autofac/3.1.3/autofac.3.1.3.nupkg.sha512",
     "/home/phong/.nuget/packages/autofac.signalr/3.0.2/autofac.signalr.3.0.2.nupkg.sha512",

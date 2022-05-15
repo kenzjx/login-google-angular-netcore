@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
-
 import { AppComponent } from './app.component';
-
-
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { GoogleLoginComponent } from './google-login/google-login.component';
 import { environment } from '../environments/environment';
@@ -18,6 +18,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeGuard } from './home/home.guard';
+
+import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AppRoutingModule } from './app-routing.module';
 const routes : Routes = [
   {path: '', component: GoogleLoginComponent, pathMatch: 'full'},
   {path: 'home', component: HomeComponent, canActivate: [HomeGuard]},
@@ -31,15 +35,18 @@ const routes : Routes = [
     GoogleLoginComponent,
     HomeComponent,
     HomeComponent,
-
+    // DashboardComponent
   ],
   imports: [
+    NgxPaginationModule,
+    AppRoutingModule,
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     SocialLoginModule,
-    RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules
-    }),
+    // RouterModule.forRoot(routes, {
+    //   preloadingStrategy: PreloadAllModules
+    // }),
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({

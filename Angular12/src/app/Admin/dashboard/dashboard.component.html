@@ -1,5 +1,10 @@
 <div class="container">
   <h1 class="align-content-center text-success">List UserName And RoleName</h1>
+  <div>
+    <select (change)="onTableSizeChange($event)">
+      <option *ngFor="let size of tableSizes">{{size}}</option>
+    </select>
+  </div>
   <table class="table mt-3 table-bordered">
     <thead class="thead-dark">
       <tr>
@@ -8,7 +13,10 @@
       </tr>
     </thead>
     <tbody class="table-striped table-hover">
-      <tr class="table-active" *ngFor="let row of userRole">
+      <tr class="table-active" *ngFor="let row of userRole | paginate : {itemsPerPage : tableSize,
+        currentPage : page,
+        totalItems: count
+      }; let i = index">
         <td>{{row.userName}}</td>
         <td>
           <select id="roleid" (change)="changeRole($event)">
@@ -21,4 +29,8 @@
       </tr>
     </tbody>
   </table>
+  <div>
+    <pagination-controls previousLabel="Prev" nextLabel="Next"
+    (pageChange)="onTableDataChange($event)"></pagination-controls>
+  </div>
 </div>
