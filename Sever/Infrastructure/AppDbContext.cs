@@ -28,5 +28,9 @@ namespace Server.Infrastructure
             
         }
         public DbSet<Connections> Connections {set;get;}
+
+        public DbSet<Employee> Employees {set;get;}
+
+        public DbSet<Photo> Photos {set;get;}
     }
 }

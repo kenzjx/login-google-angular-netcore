@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices.ComTypes;
+using System.Linq;
 namespace Server.Models.UserRole
 {
     public class UserRoleRepose

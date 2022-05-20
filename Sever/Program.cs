@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Server.Hub.Interface;
 using Server.Infrastructure;
@@ -36,7 +37,7 @@ builder.Services.AddCors(options =>
         .WithOrigins("http://localhost:4200"));
     });
 builder.Services.AddScoped<IUserService, UserService>();
-
+builder.Services.AddScoped<IEmployee, EmployeeService>();
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -120,7 +121,15 @@ app.UseRouting();
 
 app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
+app.UseStaticFiles( new StaticFileOptions () {
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Uploads")
+    ),
+    RequestPath = "/contents"
+});
+
 app.UseAuthentication();
 app.UseAuthorization();
 

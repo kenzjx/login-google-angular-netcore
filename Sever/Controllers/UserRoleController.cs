@@ -36,7 +36,7 @@ namespace Server.Controllers
         public async Task<IActionResult> GetUserRole()
         {
 
-            ListUserRoleRepose users = new ListUserRoleRepose();
+            List<UserRoleRepose> users = new ListUserRoleRepose();
             var lusers = (from u in userManager.Users
                           orderby u.UserName
                           select new { Id = u.Id, Name = u.UserName });
@@ -50,8 +50,8 @@ namespace Server.Controllers
                 listroles = await roleManager.Roles.Select(s => s.Name).ToListAsync();
                 users.Add(new UserRoleRepose { Id = user.Id, UserName = user.Name, Role = Role, ListRoles = listroles });
             }
-
-            var reulst1 = users.ToList();
+            
+            var reulst1 = users.OrderBy(x => x.UserName).ToList();
             return Ok(reulst1);
         }
 
